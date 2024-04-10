@@ -39,10 +39,10 @@ stdenv.mkDerivation(finalAttrs: {
   version = "dev-09-03-2024";
 
   src = fetchgit {
-    url = "https://github.com/suyu-emu/suyu.git";
+    url = "https://git.suyu.dev/suyu/suyu.git";
 #    ref = "dev";
-    rev = "31da256fb5e212cd05ee38957f86db8aad6f8588";
-    hash = "sha256-ZhVdK8Sahlfke38GqqMR8yky2UBdIEOWQKu5OkJJnAo=";
+    rev = "2caadffe4d64de38a4835c2553a7a66d92eb7d4b";
+    hash = "";
     fetchSubmodules = true;
   };
 
