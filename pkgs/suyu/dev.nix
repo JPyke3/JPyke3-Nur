@@ -42,7 +42,7 @@ stdenv.mkDerivation(finalAttrs: {
     url = "https://git.suyu.dev/suyu/suyu.git";
 #    ref = "dev";
     rev = "2caadffe4d64de38a4835c2553a7a66d92eb7d4b";
-    hash = "";
+    hash = "sha256-zwlbXYZQ9jGYWVvDsN1iqpC+oVbtVX5qG9zJdmr91FY=";
     fetchSubmodules = true;
   };
 
