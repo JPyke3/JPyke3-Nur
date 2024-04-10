@@ -36,7 +36,7 @@
 }:
 stdenv.mkDerivation(finalAttrs: {
   pname = "suyu";
-  version = "dev-09-03-2024";
+  version = "dev-10-04-2024";
 
   src = fetchgit {
     url = "https://git.suyu.dev/suyu/suyu.git";
