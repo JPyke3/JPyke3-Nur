@@ -14,7 +14,13 @@ buildGo122Module rec {
 		sha256 = "sha256-lgqHz97VFLBBGCtFZQNvqalqYbMsbKY4DBv/95DEXas=";
 	};
 
-	vendorHash = lib.fakeHash;
+	vendorHash = "sha256-6RYHZiA/6lxPMIoLR9Yk3LiPLK9GszHiACN20h/Da2E=";
+
+	subPackages = [ "cmd" ];
+
+	postConfigure = ''
+		go generate ./...
+	'';
 
 	meta = with lib; {
 		description = "A Home Assistant, native app integration for desktop/laptop devices.";
@@ -23,5 +29,7 @@ buildGo122Module rec {
 		licence = licenses.mit;
 		maintainers = with maintainers; [ jpyke3 ];
 		mainProgram = "go-hass-agent";
+		broken = true; # Still haven't figured out how to handle the other depenedencies
 	};
 }
+

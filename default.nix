@@ -18,5 +18,5 @@
     branch = "dev";
   };
 
-  go-hass-agent = pkgs.callPackage ./pkgs/go-hass-agent;
+  go-hass-agent = pkgs.callPackage ./pkgs/go-hass-agent {};
 }
