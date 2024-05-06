@@ -1,9 +1,9 @@
-{ stdenv, fetchurl, pkgs ? import <nixpkgs> {} }:
+{ lib, stdenv, fetchurl }:
 stdenv.mkDerivation rec {
   pname = "kanata-bin";
   version = "1.6.1";
 
-  src = pkgs.fetchurl {
+  src = fetchurl {
 	url = "https://github.com/jtroo/kanata/releases/download/v${version}/kanata_macos_arm64";
 	sha256 = "sha256-6gYIItqnDAKjTCsuqF81qmvaYpYLJ5ipetKo7lXvR/Y=";
   };
@@ -17,4 +17,12 @@ stdenv.mkDerivation rec {
 	cp $src $out/bin/kanata
 	chmod +x $out/bin/kanata
   '';
+
+  meta = with lib; {
+  	description = "Improve keyboard comfort and usability with advanced customization ";
+	homepage = "https://github.com/jtroo/kanata";
+	license = lib.licenses.glp3plus;
+	maintainers = with maintainers; [ jpyke3 ];
+	platforms = platforms.darwin;
+  };
 }
