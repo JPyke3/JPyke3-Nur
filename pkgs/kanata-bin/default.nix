@@ -21,7 +21,7 @@ stdenv.mkDerivation rec {
   meta = with lib; {
   	description = "Improve keyboard comfort and usability with advanced customization ";
 	homepage = "https://github.com/jtroo/kanata";
-	license = lib.licenses.glp3plus;
+	license = licenses.gpl3Only;
 	maintainers = with maintainers; [ jpyke3 ];
 	platforms = platforms.darwin;
   };
