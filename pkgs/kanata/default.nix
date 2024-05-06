@@ -1,25 +1,20 @@
-{ fetchFromGitHub, rustPlatform, lib }:
-{
-	rustPlatform.buildRustPackage rec {
-		pname = "kanata";
-		version = "v1.6.1";
-		
-		src = fetchFromGitHub {
-			owner = "jtroo";
-			repo = "kanata";
-			rev = "v1.6.1";
-			sha256 = "";
-		};
+{ stdenv, fetchurl, pkgs ? import <nixpkgs> {} }:
+stdenv.mkDerivation rec {
+  pname = "kanata-bin";
+  version = "1.6.1";
 
-		cargoHash = "";
+  src = pkgs.fetchurl {
+	url = "https://github.com/jtroo/kanata/releases/download/v${version}/kanata_macos_arm64";
+	sha256 = "sha256-6gYIItqnDAKjTCsuqF81qmvaYpYLJ5ipetKo7lXvR/Y=";
+  };
 
-		meta = {
-			description = "Improve keyboard comfort and usability with advanced customization";
-			homepage = "https://github.com/jtroo/kanata";
-			license = lib.licences.lgpl3Only;
-			maintainers = [
-				jpyke3
-			];
-		};
-	};
+  phases = [ "installPhase" ];
+
+  sourceRoot = ".";
+
+  installPhase = ''
+	mkdir -p $out/bin
+	cp $src $out/bin/kanata
+	chmod +x $out/bin/kanata
+  '';
 }
